@@ -8,7 +8,6 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 @RequiredArgsConstructor
 public class TgService {
 
-  private final WebhookService webhookService;
   private final WebhookDbServvice webhookDbServvice;
 
 
@@ -43,10 +42,10 @@ public class TgService {
                     webhookDbServvice.whenRegister(update);
                     break;
                 case "OK":
-                    webhookService.whenRegister(update);
+                    webhookDbServvice.whenRegister(update);
                     break;
                 default:
-                    webhookService.whenDefaultMessage(update);
+                    "Bunday komandda mavjud emas!";
             }
         }
     }
