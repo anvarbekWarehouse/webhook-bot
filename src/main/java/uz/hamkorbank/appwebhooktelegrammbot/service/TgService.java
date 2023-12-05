@@ -45,7 +45,7 @@ public class TgService {
                     webhookDbServvice.whenRegister(update);
                     break;
                 default:
-                    "Bunday komandda mavjud emas!";
+                    webhookDbServvice.whenDefaultMessage(update);
             }
         }
     }
