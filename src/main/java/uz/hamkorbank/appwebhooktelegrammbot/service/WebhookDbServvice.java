@@ -34,6 +34,14 @@ public class WebhookDbServvice {
     private final ServerRepository serverRepository;
     private final RestTemplate restTemplate;
 
+    public void whenDefaultMessage(Update update) {
+
+        SendMessage sendMessage = new SendMessage(update.getMessage().getChatId().toString(), "Mavjud bo'lmagan buyruq berdinggiz!");
+
+        ResultTelegramm resultTelegramm = restTemplate.postForObject(
+                RestConstants.TELEGRAM_BASE_URL + RestConstants.BOT_TOKEN + "/sendMessage",
+                sendMessage, ResultTelegramm.class);
+    }
     public void whenStart(Update update){
         ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();
         List<KeyboardRow> keyboard = new ArrayList<>();
